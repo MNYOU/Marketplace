@@ -1,0 +1,16 @@
+<p>product-page works!</p>
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate enim error, facilis iure officiis porro quo ut.
+  Aut facere nisi omnis quibusdam recusandae sunt tempora voluptatibus! A dignissimos eveniet saepe.
+</p>
+
+<p *ngIf="loading" class="text-center text-lg">Loading...</p>
+
+
+<div *ngIf="product$ | async as product">
+  <app-product
+    [product]="product"
+    [details]="true"
+  ></app-product>
+</div>
+

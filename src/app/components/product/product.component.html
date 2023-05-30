@@ -1,0 +1,40 @@
+<!--<div class="py-4 px-6 border rounded flex items-center flex-col mb-2">-->
+<div class="product">
+  <div class="image-container">
+    <img [src]="product.image" [alt]="product.image" class="product-image">
+  </div>
+  <a
+    class="link"
+
+    *ngIf="!details"
+    routerLink="/products/{{product.id}}">
+    <h2 class="mb-2 text-md text-center">{{product.title}}</h2>
+  </a>
+  <p>Price: <span class="font-bold">{{product.price | currency}}</span></p>
+
+  <div *ngIf="details">
+    <p>{{product.description}}</p>
+    <p>Rate: <span [ngStyle]="{fontWeight: 'bold'}">
+        {{product.rating.rate | number: '1.2-4'}}
+      </span></p>
+  </div>
+
+  <div class="buttons mt-4 mb-4">
+<!--    <button-->
+<!--      class="btn mr-4"-->
+<!--      *ngIf="!details"-->
+<!--      routerLink="/products/{{product.id}}"-->
+<!--    >Подробности-->
+<!--    </button>-->
+
+    <button
+      class="mr-5 btn"
+      (click)="isFavourites = !isFavourites; callback.call(undefined)">{{!isFavourites ? 'Add to favourites' : 'Remove from favourites'}}
+    </button>
+    <button
+      class="btn"
+      (click)="inShoppingCart = !inShoppingCart; callback.call(undefined)">{{!inShoppingCart ? 'Add to cart' : 'Remove from cart'}}
+    </button>
+  </div>
+
+</div>

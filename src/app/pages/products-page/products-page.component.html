@@ -1,0 +1,58 @@
+
+<h1 class="text-center transition-colors">{{title | titlecase}}</h1>
+
+<div class="panel">
+  <input
+    type="text"
+    placeholder="Filter products..."
+    [(ngModel)]="term"
+    (ngModelChange)="doSomething($event, false)"
+  >
+  <label>Category</label>
+  <select name="select" [(ngModel)]="category"
+          *ngIf="categories$ | async as categories"
+            (ngModelChange)="doSomething($event, false)"
+  >
+      <option value="all">all</option>
+      <option *ngFor="let c of categories" value="{{c}}">{{c}}</option>
+  </select>
+  <label>Order</label>
+  <select
+    [(ngModel)]="orderParam"
+    (ngModelChange)="doSomething($event, false)"
+  >
+    <option value="title">name</option>
+    <option value="price">price</option>
+    <option value="popularity">popularity</option>
+    <option value="rating">rating</option>
+  </select>
+  <label>Sort order</label>
+  <select
+    [(ngModel)]="sortOrder"
+    (ngModelChange)="doSomething($event, false)"
+  >
+    <option value="asc" selected>ascending</option>
+    <option value="des">descending</option>
+  </select>
+</div>
+
+<p *ngIf="loading" class="text-center text-lg">Loading...</p>
+
+
+<div *ngIf="products$ | async as products" class="content">
+  <app-product
+    *ngFor="let product of products; let i = index;"
+    [product]="product"
+    [details]="false"
+  ></app-product>
+<!--      *ngFor="let product of products | filter: favouritesProducts : orderParam: sortOrder : category : term; let i = index;"-->
+</div>
+<mat-paginator [length]="length"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="[6, 10]"
+               (page)="pageEvent = doSomething($event, true)"
+               [pageIndex]="pageIndex"
+               aria-label="Select page"
+>
+</mat-paginator>
+

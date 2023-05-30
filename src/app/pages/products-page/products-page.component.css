@@ -1,0 +1,43 @@
+.content {
+  /*width: 85%;*/
+  min-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+input {
+  font-family:inherit;
+  font-size: inherit;
+}
+
+.panel {
+  width: 89%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+select {
+  width: 25%;
+  padding:10px;
+  margin: 15px;
+  border-radius:10px;
+}
+
+select:nth-child(2) {
+  margin-left: 0;
+}
+
+select:last-child {
+  margin-right: 0;
+}
+
+input[type=text] {
+  display: block;
+  width:  100%;
+  padding: 10px;
+  border: 0;
+  margin: 10px auto;
+  border-radius:10px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
