@@ -67,14 +67,9 @@ export class ProductsPageComponent implements OnInit {
       {
         this.pageIndex = event.pageIndex;
         this.pageSize = event.pageSize;
-        // console.log(this.pageIndex)
-        // console.log(this.pageSize)
       }
-      console.log(this.length)
-      console.log((this.pageIndex + 1) * this.pageSize)
       if (this.length < (this.pageIndex + 1) * this.pageSize && this.pageIndex != 0)
       {
-        console.log(0)
         this.pageIndex = 0
       }
       data = data.slice(this.pageIndex * this.pageSize, (this.pageIndex + 1) * this.pageSize)

@@ -10,7 +10,7 @@ import {ProductsService} from "../../services/products.service";
   styleUrls: ['./product-page.component.css']
 })
 export class ProductPageComponent implements OnInit{
-  title: string = 'Marketplace'
+  title: string = 'Details'
   product$: Observable<IProduct>
   loading: boolean = false
 

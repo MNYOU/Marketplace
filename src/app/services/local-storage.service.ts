@@ -44,9 +44,17 @@ export class LocalStorageService {
 
   setToArray(key: string, productValue: IProduct, value: boolean): void {
     let arr: IProductInfo[] = this.getItem(key)
+    if (arr === null) {
+      this.setItem(key, [])
+      arr = this.getItem(key)
+    }
     let product = arr.find((p) => p.product.id == productValue.id)
-    if (product == undefined)
+    console.log(product)
+    if (product === undefined) {
+      console.log(13121231)
       arr.push({product: productValue, value: value})
+
+    }
     else
       product.value = value
     this.setItem(key, arr)

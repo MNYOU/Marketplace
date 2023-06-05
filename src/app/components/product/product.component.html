@@ -10,6 +10,7 @@
     routerLink="/products/{{product.id}}">
     <h2 class="mb-2 text-md text-center">{{product.title}}</h2>
   </a>
+  <h2 *ngIf="details" class="mb-2 text-md text-center">{{product.title}}</h2>
   <p>Price: <span class="font-bold">{{product.price | currency}}</span></p>
 
   <div *ngIf="details">
