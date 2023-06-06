@@ -68,7 +68,8 @@ export class ProductsPageComponent implements OnInit {
         this.pageIndex = event.pageIndex;
         this.pageSize = event.pageSize;
       }
-      if (this.length < (this.pageIndex + 1) * this.pageSize && this.pageIndex != 0)
+        if (this.length + this.pageSize <= (this.pageIndex + 1) * this.pageSize && this.pageIndex != 0)
+        // if (this.length < (this.pageIndex + 1) * this.pageSize && this.pageIndex != 0)
       {
         this.pageIndex = 0
       }
